@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Productivity Reports · Focusly{% endblock %}{% block breadcrumb %}Productivity reports{% endblock %}
+{% block content %}
+<div class="page-heading"><div><span class="eyebrow">YOUR DATA, MADE VISIBLE</span><h1>Productivity reports</h1><p>Charts are generated from study sessions saved in your local database.</p></div><span class="report-total"><strong>{{ stats.sessions }}</strong> saved sessions</span></div>
+<section class="report-summary"><div><span>Total study time</span><strong>{{ '%.1f'|format(stats.study / 60) }} hrs</strong></div><div><span>Self-rated concentration</span><strong>{{ '%.1f'|format(stats.avg_concentration) }} / 10</strong></div><div><span>Distraction time</span><strong>{{ '%.0f'|format(stats.distractions) }} min</strong></div><div><span>Completed sessions</span><strong>{{ stats.sessions }}</strong></div></section>
+<section class="reports-grid">
+  <article class="panel chart-panel"><div class="panel-head"><div><h2>Daily study duration</h2><p>Recent recorded days</p></div><span class="chart-symbol">◷</span></div><img src="{{ url_for('chart_image', chart_name='daily') }}" alt="Daily study duration chart" class="chart-img"></article>
+  <article class="panel chart-panel"><div class="panel-head"><div><h2>Weekly performance</h2><p>Study time by calendar week</p></div><span class="chart-symbol">⌁</span></div><img src="{{ url_for('chart_image', chart_name='weekly') }}" alt="Weekly study performance chart" class="chart-img"></article>
+  <article class="panel chart-panel"><div class="panel-head"><div><h2>Distraction analysis</h2><p>Time tracked across your sessions</p></div><span class="chart-symbol">↗</span></div><img src="{{ url_for('chart_image', chart_name='distractions') }}" alt="Distraction and study time breakdown" class="chart-img"></article>
+  <article class="panel chart-panel"><div class="panel-head"><div><h2>Focus comparison</h2><p>Model categories from your sessions</p></div><span class="chart-symbol">◎</span></div><img src="{{ url_for('chart_image', chart_name='focus') }}" alt="Predicted focus category comparison" class="chart-img"></article>
+  <article class="panel chart-panel full-report"><div class="panel-head"><div><h2>Study time by subject</h2><p>Where you’ve spent your study time</p></div><span class="chart-symbol">▥</span></div><img src="{{ url_for('chart_image', chart_name='subjects') }}" alt="Subject-wise study time chart" class="chart-img"></article>
+</section>
+<div class="notice-line"><span>ⓘ</span><p>Reports summarize your recorded sessions only. No sample activity is inserted into your personal study history.</p></div>
+{% endblock %}

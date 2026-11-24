@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Focusly · Study with intention{% endblock %}
+{% block breadcrumb %}Home{% endblock %}
+{% block content %}
+<section class="welcome-strip"><span class="eyebrow"><i class="spark-dot"></i> YOUR PERSONAL STUDY COMPANION</span><h1>Make room for <em>deep focus.</em></h1><p>Understand your study patterns, celebrate what works, and shape a routine that feels good.</p><a href="{{ url_for('study') }}" class="button button-primary">Start a study session <span>→</span></a></section>
+<section class="home-grid">
+  <article class="home-feature feature-blue"><div class="feature-number">01</div><div class="feature-icon">◷</div><h2>Study with intention</h2><p>Set a goal, focus with a simple timer, and capture the session you actually completed.</p><a href="{{ url_for('study') }}">Open study timer <span>↗</span></a></article>
+  <article class="home-feature feature-violet"><div class="feature-number">02</div><div class="feature-icon">✧</div><h2>Reflect, don't judge</h2><p>See a machine-learning estimate alongside your own concentration rating and session context.</p><a href="{{ url_for('analysis') }}">Explore focus analysis <span>↗</span></a></article>
+  <article class="home-feature feature-mint"><div class="feature-number">03</div><div class="feature-icon">▥</div><h2>Notice your patterns</h2><p>Turn your saved sessions into clear daily, weekly, distraction, and subject reports.</p><a href="{{ url_for('reports') }}">View productivity reports <span>↗</span></a></article>
+</section>
+<section class="home-bottom">
+  <div class="home-quote"><span class="quote-mark">“</span><div><p>Focus isn't about doing more at once. It's about giving one thing your attention.</p><small>A gentler way to study</small></div></div>
+  <div class="home-mini-stat"><span class="mini-stat-icon">◎</span><div><strong>{{ stats.sessions }}</strong><span>sessions saved</span></div><a href="{{ url_for('dashboard') }}" aria-label="Open dashboard">→</a></div>
+</section>
+<div class="notice-line"><span>ⓘ</span><p>Your study data stays in a local SQLite database on this device. Start your first session to see your personal analytics.</p></div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Recommendations · Focusly{% endblock %}{% block breadcrumb %}Recommendations{% endblock %}
+{% block content %}
+<div class="page-heading"><div><span class="eyebrow">GENTLE, PERSONALIZED NEXT STEPS</span><h1>Recommendations</h1><p>Practical ideas based on your latest saved study reflection.</p></div><a href="{{ url_for('study') }}" class="button button-primary">＋ New session</a></div>
+{% if latest %}<section class="recommendation-banner"><div class="rec-spark">✦</div><div><span class="eyebrow">BASED ON YOUR LATEST SESSION · {{ latest.subject }}</span><h2>{{ latest.focus_category }} <span>is a starting point, not a label.</span></h2><p>Here are a few small things to experiment with next time.</p></div><span class="rec-date">{{ latest.created_at[:10] }}</span></section>
+<section class="recommendation-list">{% for tip in tips %}<article class="recommendation-card"><span class="tip-index">{{ '%02d'|format(loop.index) }}</span><div class="tip-mark">{% if loop.index == 1 %}↗{% elif loop.index == 2 %}◷{% else %}✧{% endif %}</div><div><h3>{{ tip }}</h3><p>Try it as an experiment—keep what helps and adjust what doesn’t.</p></div><span class="tip-arrow">→</span></article>{% endfor %}</section>
+<div class="notice-line"><span>♡</span><p>Recommendations are simple coaching suggestions generated from your session inputs; they are not medical or academic advice.</p></div>
+{% else %}<section class="empty-state panel"><span class="empty-illustration large">✧</span><h2>Your next steps will feel personal</h2><p>Save a session with your focus rating and reflections to receive tailored suggestions.</p><a href="{{ url_for('study') }}" class="button button-primary">Start your first session →</a></section>{% endif %}
+{% endblock %}
