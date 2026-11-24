@@ -1,0 +1,45 @@
+{
+  "accuracy": 0.8756,
+  "test_rows": 225,
+  "dataset_rows": 900,
+  "classification_report": {
+    "Low focus": {
+      "precision": 0.725,
+      "recall": 0.8285714285714286,
+      "f1-score": 0.7733333333333333,
+      "support": 35.0
+    },
+    "Medium focus": {
+      "precision": 0.8764044943820225,
+      "recall": 0.8210526315789474,
+      "f1-score": 0.8478260869565217,
+      "support": 95.0
+    },
+    "High focus": {
+      "precision": 0.9375,
+      "recall": 0.9473684210526315,
+      "f1-score": 0.9424083769633508,
+      "support": 95.0
+    },
+    "accuracy": 0.8755555555555555,
+    "macro avg": {
+      "precision": 0.8463014981273408,
+      "recall": 0.8656641604010025,
+      "f1-score": 0.8545225990844019,
+      "support": 225.0
+    },
+    "weighted avg": {
+      "precision": 0.8786485642946317,
+      "recall": 0.8755555555555555,
+      "f1-score": 0.8761730699513535,
+      "support": 225.0
+    }
+  },
+  "feature_importance": {
+    "study_minutes": 0.1618,
+    "distraction_minutes": 0.1034,
+    "break_minutes": 0.0651,
+    "concentration": 0.6697
+  },
+  "dataset_note": "Synthetic sample dataset; generated with a documented teaching-label recipe."
+}
